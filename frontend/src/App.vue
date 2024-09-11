@@ -42,7 +42,7 @@ onError((event) => {
   console.error('Error loading video: ', event)
 })
 
-const youtube_parser = (url: string) => {
+const youtubeParser = (url: string) => {
   const regExp = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#&?]*).*/
   const match = url.match(regExp)
   return match && match[1].length == 11 ? match[1] : false
@@ -97,7 +97,7 @@ const form = useForm({
 })
 
 const onSubmit = form.handleSubmit(async (values) => {
-  const id = youtube_parser(values.link)
+  const id = youtubeParser(values.link)
 
   if (!id) {
     toast({
